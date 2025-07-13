@@ -13,7 +13,7 @@
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #e3f2fd 0%, #f8f9fa 100%);
+            background: #f5f7fa;
             min-height: 100vh;
             padding: 20px;
         }
@@ -24,9 +24,8 @@
             background: rgba(255, 255, 255, 0.95);
             border-radius: 20px;
             padding: 30px;
-            box-shadow: 0 10px 30px rgba(74, 144, 164, 0.1);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
             backdrop-filter: blur(10px);
-            border: 1px solid rgba(74, 144, 164, 0.1);
         }
 
         h1 {
@@ -34,7 +33,7 @@
             color: #4a90a4;
             margin-bottom: 30px;
             font-size: 250%;
-            text-shadow: 1px 1px 2px rgba(74, 144, 164, 0.1);
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.05);
         }
 
         .input-section {
@@ -47,8 +46,8 @@
         }
 
         .input-section:hover {
-            border-color: green;
-            box-shadow: 0 5px 15px rgba(0, 128, 0, 0.2);
+            border-color: #4a90a4;
+            box-shadow: 0 5px 15px rgba(74, 144, 164, 0.2);
         }
 
         .input-group {
@@ -76,12 +75,12 @@
 
         input[type="text"]:focus {
             outline: none;
-            border-color: green;
-            box-shadow: 0 0 0 3px rgba(0, 128, 0, 0.1);
+            border-color: #4a90a4;
+            box-shadow: 0 0 0 3px rgba(74, 144, 164, 0.1);
         }
 
         button {
-            background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+            background: linear-gradient(135deg, #4a90a4 0%, #3a7a8a 100%);
             color: white;
             padding: 12px 30px;
             border: none;
@@ -96,7 +95,7 @@
 
         button:hover {
             transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(76, 175, 80, 0.3);
+            box-shadow: 0 10px 20px rgba(74, 144, 164, 0.3);
         }
 
         .error-msg {
@@ -130,7 +129,7 @@
         }
 
         th {
-            background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+            background: linear-gradient(135deg, #4a90a4 0%, #3a7a8a 100%);
             color: white;
             font-weight: 600;
             text-transform: uppercase;
@@ -142,8 +141,24 @@
         }
 
         tr:hover {
-            background: rgba(76, 175, 80, 0.1);
+            background: rgba(74, 144, 164, 0.1);
             transition: all 0.3s ease;
+        }
+
+        .binary-display {
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .zero {
+            color: #ff6b6b;
+            background: rgba(255, 107, 107, 0.1);
+        }
+
+        .one {
+            color: #4ecdc4;
+            background: rgba(78, 205, 196, 0.1);
         }
 
         .dot {
@@ -159,31 +174,30 @@
         }
 
         .info-card {
-            background: #f8fbff;
+            background: #f8f9fa;
             padding: 20px;
             border-radius: 10px;
-            border-left: 4px solid #4a90a4;
+            border-left: 4px solid #87ceeb;
             transition: all 0.3s ease;
-            border: 1px solid #e0f2ff;
         }
 
         .info-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(74, 144, 164, 0.15);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
         }
 
         .info-card:first-child {
-            border-left: 4px solid #357a8a;
+            border-left: 4px solid #4ecdc4;
         }
 
         .info-card h3 {
-            color: #4a90a4;
+            color: #495057;
             margin-bottom: 10px;
             font-size: 16px;
         }
 
         .info-card p {
-            color: #5a6c7d;
+            color: #6c757d;
             font-size: 14px;
             margin-bottom: 5px;
         }
@@ -197,13 +211,13 @@
 
         .checkbox-label {
             font-size: 14px;
-            color: #4a90a4;
+            color: #495057;
         }
 
         .custom-checkbox {
             width: 20px;
             height: 20px;
-            border: 2px solid #e0f2ff;
+            border: 2px solid #dee2e6;
             border-radius: 4px;
             position: relative;
             cursor: pointer;
@@ -264,7 +278,8 @@
                 <thead>
                     <tr>
                         <th style="width: 150px;">Type</th>
-                        <th>Address</th>
+                        <th colspan="4">Address</th>
+                        <th>Binary Representation</th>
                     </tr>
                 </thead>
                 <tbody id="result-tbody">
@@ -276,16 +291,16 @@
                     <h3>Network Information</h3>
                     <table style="width: 100%; font-size: 13px; margin-top: 10px;">
                         <tr>
-                            <td style="padding: 5px; border: 1px solid #e0f2ff; background: #f0f8ff; font-weight: 600;">Address Range</td>
-                            <td style="padding: 5px; border: 1px solid #e0f2ff;" id="addr-range-table">-</td>
+                            <td style="padding: 5px; border: 1px solid #dee2e6; background: #f8f9fa; font-weight: 600;">Address Range</td>
+                            <td style="padding: 5px; border: 1px solid #dee2e6;" id="addr-range-table">-</td>
                         </tr>
                         <tr>
-                            <td style="padding: 5px; border: 1px solid #e0f2ff; background: #f0f8ff; font-weight: 600;">Number of Hosts</td>
-                            <td style="padding: 5px; border: 1px solid #e0f2ff;" id="host-count-table">-</td>
+                            <td style="padding: 5px; border: 1px solid #dee2e6; background: #f8f9fa; font-weight: 600;">Number of Hosts</td>
+                            <td style="padding: 5px; border: 1px solid #dee2e6;" id="host-count-table">-</td>
                         </tr>
                         <tr>
-                            <td style="padding: 5px; border: 1px solid #e0f2ff; background: #f0f8ff; font-weight: 600;">Usable Hosts</td>
-                            <td style="padding: 5px; border: 1px solid #e0f2ff;" id="usable-count-table">-</td>
+                            <td style="padding: 5px; border: 1px solid #dee2e6; background: #f8f9fa; font-weight: 600;">Usable Hosts</td>
+                            <td style="padding: 5px; border: 1px solid #dee2e6;" id="usable-count-table">-</td>
                         </tr>
                     </table>
                 </div>
@@ -294,8 +309,8 @@
                     <h3>IPv6 Address</h3>
                     <table style="width: 100%; font-size: 13px; margin-top: 10px;">
                         <tr>
-                            <td style="padding: 5px; border: 1px solid #e0f2ff; background: #f0f8ff; font-weight: 600;">IPv6</td>
-                            <td style="padding: 5px; border: 1px solid #e0f2ff;" id="ipv6-addr-table">-</td>
+                            <td style="padding: 5px; border: 1px solid #dee2e6; background: #f8f9fa; font-weight: 600;">IPv6</td>
+                            <td style="padding: 5px; border: 1px solid #dee2e6;" id="ipv6-addr-table">-</td>
                         </tr>
                     </table>
                 </div>
@@ -304,16 +319,16 @@
                     <h3>Address Properties</h3>
                     <table style="width: 100%; font-size: 13px; margin-top: 10px;">
                         <tr>
-                            <td style="padding: 5px; border: 1px solid #e0f2ff; background: #f0f8ff; font-weight: 600;">Private</td>
-                            <td style="padding: 5px; border: 1px solid #e0f2ff;" id="private-table">-</td>
+                            <td style="padding: 5px; border: 1px solid #dee2e6; background: #f8f9fa; font-weight: 600;">Private</td>
+                            <td style="padding: 5px; border: 1px solid #dee2e6;" id="private-table">-</td>
                         </tr>
                         <tr>
-                            <td style="padding: 5px; border: 1px solid #e0f2ff; background: #f0f8ff; font-weight: 600;">Unicast</td>
-                            <td style="padding: 5px; border: 1px solid #e0f2ff;" id="unicast-table">-</td>
+                            <td style="padding: 5px; border: 1px solid #dee2e6; background: #f8f9fa; font-weight: 600;">Unicast</td>
+                            <td style="padding: 5px; border: 1px solid #dee2e6;" id="unicast-table">-</td>
                         </tr>
                         <tr>
-                            <td style="padding: 5px; border: 1px solid #e0f2ff; background: #f0f8ff; font-weight: 600;">Multicast</td>
-                            <td style="padding: 5px; border: 1px solid #e0f2ff;" id="multicast-table">-</td>
+                            <td style="padding: 5px; border: 1px solid #dee2e6; background: #f8f9fa; font-weight: 600;">Multicast</td>
+                            <td style="padding: 5px; border: 1px solid #dee2e6;" id="multicast-table">-</td>
                         </tr>
                     </table>
                 </div>
@@ -322,16 +337,16 @@
                     <h3>Special Properties</h3>
                     <table style="width: 100%; font-size: 13px; margin-top: 10px;">
                         <tr>
-                            <td style="padding: 5px; border: 1px solid #e0f2ff; background: #f0f8ff; font-weight: 600;">Loopback</td>
-                            <td style="padding: 5px; border: 1px solid #e0f2ff;" id="loopback-table">-</td>
+                            <td style="padding: 5px; border: 1px solid #dee2e6; background: #f8f9fa; font-weight: 600;">Loopback</td>
+                            <td style="padding: 5px; border: 1px solid #dee2e6;" id="loopback-table">-</td>
                         </tr>
                         <tr>
-                            <td style="padding: 5px; border: 1px solid #e0f2ff; background: #f0f8ff; font-weight: 600;">Link Local</td>
-                            <td style="padding: 5px; border: 1px solid #e0f2ff;" id="linklocal-table">-</td>
+                            <td style="padding: 5px; border: 1px solid #dee2e6; background: #f8f9fa; font-weight: 600;">Link Local</td>
+                            <td style="padding: 5px; border: 1px solid #dee2e6;" id="linklocal-table">-</td>
                         </tr>
                         <tr>
-                            <td style="padding: 5px; border: 1px solid #e0f2ff; background: #f0f8ff; font-weight: 600;">Reserved</td>
-                            <td style="padding: 5px; border: 1px solid #e0f2ff;" id="reserved-table">-</td>
+                            <td style="padding: 5px; border: 1px solid #dee2e6; background: #f8f9fa; font-weight: 600;">Reserved</td>
+                            <td style="padding: 5px; border: 1px solid #dee2e6;" id="reserved-table">-</td>
                         </tr>
                     </table>
                 </div>
@@ -502,10 +517,12 @@
             
             rows.forEach(([type, addr]) => {
                 const row = document.createElement('tr');
+                const binary = addr !== 'None' ? ipToBinary(addr) : '';
                 
                 row.innerHTML = `
-                    <td style="vertical-align: middle; font-weight: bold;">${type}</td>
-                    <td>${addr}</td>
+                    <td rowspan="2" style="vertical-align: middle; font-weight: bold;">${type}</td>
+                    <td colspan="4">${addr}</td>
+                    <td class="binary-display">${addr !== 'None' ? formatBinaryDisplay(binary) : ''}</td>
                 `;
                 tbody.appendChild(row);
             });
@@ -535,7 +552,6 @@
             const checkbox = document.getElementById(id);
             checkbox.className = checked ? 'custom-checkbox checked' : 'custom-checkbox';
         }
-
 
         function showError(message) {
             const errorMsg = document.getElementById('error-msg');
