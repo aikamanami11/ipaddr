@@ -156,6 +156,17 @@
             grid-template-columns: 2fr 1fr 1fr 1fr;
             gap: 20px;
             margin-top: 20px;
+            overflow-x: auto;
+            padding-bottom: 10px;
+        }
+
+        .info-grid-wrapper {
+            overflow-x: auto;
+            margin-top: 20px;
+        }
+
+        .info-grid-container {
+            min-width: 800px;
         }
 
         .info-card {
@@ -271,69 +282,73 @@
                 </tbody>
             </table>
 
-            <div class="info-grid">
-                <div class="info-card">
-                    <h3>Network Information</h3>
-                    <table style="width: 100%; font-size: 13px; margin-top: 10px;">
-                        <tr>
-                            <td style="padding: 5px; border: 1px solid #e0f2ff; background: #f0f8ff; font-weight: 600;">Address Range</td>
-                            <td style="padding: 5px; border: 1px solid #e0f2ff;" id="addr-range-table">-</td>
-                        </tr>
-                        <tr>
-                            <td style="padding: 5px; border: 1px solid #e0f2ff; background: #f0f8ff; font-weight: 600;">Number of Hosts</td>
-                            <td style="padding: 5px; border: 1px solid #e0f2ff;" id="host-count-table">-</td>
-                        </tr>
-                        <tr>
-                            <td style="padding: 5px; border: 1px solid #e0f2ff; background: #f0f8ff; font-weight: 600;">Usable Hosts</td>
-                            <td style="padding: 5px; border: 1px solid #e0f2ff;" id="usable-count-table">-</td>
-                        </tr>
-                    </table>
-                </div>
-                
-                <div class="info-card">
-                    <h3>IPv6 Address</h3>
-                    <table style="width: 100%; font-size: 13px; margin-top: 10px;">
-                        <tr>
-                            <td style="padding: 5px; border: 1px solid #e0f2ff; background: #f0f8ff; font-weight: 600;">IPv6</td>
-                            <td style="padding: 5px; border: 1px solid #e0f2ff;" id="ipv6-addr-table">-</td>
-                        </tr>
-                    </table>
-                </div>
-                
-                <div class="info-card">
-                    <h3>Address Properties</h3>
-                    <table style="width: 100%; font-size: 13px; margin-top: 10px;">
-                        <tr>
-                            <td style="padding: 5px; border: 1px solid #e0f2ff; background: #f0f8ff; font-weight: 600;">Private</td>
-                            <td style="padding: 5px; border: 1px solid #e0f2ff;" id="private-table">-</td>
-                        </tr>
-                        <tr>
-                            <td style="padding: 5px; border: 1px solid #e0f2ff; background: #f0f8ff; font-weight: 600;">Unicast</td>
-                            <td style="padding: 5px; border: 1px solid #e0f2ff;" id="unicast-table">-</td>
-                        </tr>
-                        <tr>
-                            <td style="padding: 5px; border: 1px solid #e0f2ff; background: #f0f8ff; font-weight: 600;">Multicast</td>
-                            <td style="padding: 5px; border: 1px solid #e0f2ff;" id="multicast-table">-</td>
-                        </tr>
-                    </table>
-                </div>
-                
-                <div class="info-card">
-                    <h3>Special Properties</h3>
-                    <table style="width: 100%; font-size: 13px; margin-top: 10px;">
-                        <tr>
-                            <td style="padding: 5px; border: 1px solid #e0f2ff; background: #f0f8ff; font-weight: 600;">Loopback</td>
-                            <td style="padding: 5px; border: 1px solid #e0f2ff;" id="loopback-table">-</td>
-                        </tr>
-                        <tr>
-                            <td style="padding: 5px; border: 1px solid #e0f2ff; background: #f0f8ff; font-weight: 600;">Link Local</td>
-                            <td style="padding: 5px; border: 1px solid #e0f2ff;" id="linklocal-table">-</td>
-                        </tr>
-                        <tr>
-                            <td style="padding: 5px; border: 1px solid #e0f2ff; background: #f0f8ff; font-weight: 600;">Reserved</td>
-                            <td style="padding: 5px; border: 1px solid #e0f2ff;" id="reserved-table">-</td>
-                        </tr>
-                    </table>
+            <div class="info-grid-wrapper">
+                <div class="info-grid-container">
+                    <div class="info-grid">
+                        <div class="info-card">
+                            <h3>Network Information</h3>
+                            <table style="width: 100%; font-size: 13px; margin-top: 10px;">
+                                <tr>
+                                    <td style="padding: 5px; border: 1px solid #e0f2ff; background: #f0f8ff; font-weight: 600;">Address Range</td>
+                                    <td style="padding: 5px; border: 1px solid #e0f2ff;" id="addr-range-table">-</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 5px; border: 1px solid #e0f2ff; background: #f0f8ff; font-weight: 600;">Number of Hosts</td>
+                                    <td style="padding: 5px; border: 1px solid #e0f2ff;" id="host-count-table">-</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 5px; border: 1px solid #e0f2ff; background: #f0f8ff; font-weight: 600;">Usable Hosts</td>
+                                    <td style="padding: 5px; border: 1px solid #e0f2ff;" id="usable-count-table">-</td>
+                                </tr>
+                            </table>
+                        </div>
+                        
+                        <div class="info-card">
+                            <h3>IPv6 Address</h3>
+                            <table style="width: 100%; font-size: 13px; margin-top: 10px;">
+                                <tr>
+                                    <td style="padding: 5px; border: 1px solid #e0f2ff; background: #f0f8ff; font-weight: 600;">IPv6</td>
+                                    <td style="padding: 5px; border: 1px solid #e0f2ff;" id="ipv6-addr-table">-</td>
+                                </tr>
+                            </table>
+                        </div>
+                        
+                        <div class="info-card">
+                            <h3>Address Properties</h3>
+                            <table style="width: 100%; font-size: 13px; margin-top: 10px;">
+                                <tr>
+                                    <td style="padding: 5px; border: 1px solid #e0f2ff; background: #f0f8ff; font-weight: 600;">Private</td>
+                                    <td style="padding: 5px; border: 1px solid #e0f2ff;" id="private-table">-</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 5px; border: 1px solid #e0f2ff; background: #f0f8ff; font-weight: 600;">Unicast</td>
+                                    <td style="padding: 5px; border: 1px solid #e0f2ff;" id="unicast-table">-</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 5px; border: 1px solid #e0f2ff; background: #f0f8ff; font-weight: 600;">Multicast</td>
+                                    <td style="padding: 5px; border: 1px solid #e0f2ff;" id="multicast-table">-</td>
+                                </tr>
+                            </table>
+                        </div>
+                        
+                        <div class="info-card">
+                            <h3>Special Properties</h3>
+                            <table style="width: 100%; font-size: 13px; margin-top: 10px;">
+                                <tr>
+                                    <td style="padding: 5px; border: 1px solid #e0f2ff; background: #f0f8ff; font-weight: 600;">Loopback</td>
+                                    <td style="padding: 5px; border: 1px solid #e0f2ff;" id="loopback-table">-</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 5px; border: 1px solid #e0f2ff; background: #f0f8ff; font-weight: 600;">Link Local</td>
+                                    <td style="padding: 5px; border: 1px solid #e0f2ff;" id="linklocal-table">-</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 5px; border: 1px solid #e0f2ff; background: #f0f8ff; font-weight: 600;">Reserved</td>
+                                    <td style="padding: 5px; border: 1px solid #e0f2ff;" id="reserved-table">-</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
